@@ -72,6 +72,7 @@
     <Compile Include="Assets\Script\MoveToWorld.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
     <Compile Include="Assets\Script\PlayerMovementtil2D.cs" />
+    <Compile Include="Assets\Script\SeedTree.cs" />
     <Compile Include="Assets\Script\StarDust.cs" />
     <Compile Include="Assets\Script\TransportableProperties.cs" />
   </ItemGroup>

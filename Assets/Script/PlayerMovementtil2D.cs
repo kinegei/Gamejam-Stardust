@@ -57,4 +57,13 @@ public class PlayerMovementtil2D : MonoBehaviour
         Gizmos.DrawWireSphere(Grounder.transform.position, Radius);
 
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Spiketag")
+        {
+            Debug.Log("Dead");
+            Application.LoadLevel(0);
+        }
+    }
 }
