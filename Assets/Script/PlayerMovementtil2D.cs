@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerMovementtil2D : MonoBehaviour
 {
     public float Speed = 1f;
+    public float JumpSpeed = 1f;
     public Vector2 Jump;
    
     public bool _isGrounded;
@@ -24,17 +25,32 @@ public class PlayerMovementtil2D : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetKey(KeyCode.RightArrow))
+	    if (Input.GetKey(KeyCode.RightArrow) && _isGrounded)
 	    {
             _body.velocity = new Vector2(Speed, _body.velocity.y);
             transform.localScale = new Vector3(1, 1, 1);
             animator.Play("Running_");
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) && _isGrounded)
         {
             _body.velocity = new Vector2(-Speed, _body.velocity.y);
             transform.localScale = new Vector3(-1, 1, 1);
             animator.Play("Running_");
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) && !_isGrounded)
+        {
+            _body.velocity = new Vector2(JumpSpeed, _body.velocity.y);
+            transform.localScale = new Vector3(1, 1, 1);
+            animator.Play("Running_");
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow) && !_isGrounded)
+        {
+            _body.velocity = new Vector2(-JumpSpeed, _body.velocity.y);
+            transform.localScale = new Vector3(-1, 1, 1);
+            animator.Play("Running_");
+        }else if (Input.GetKey(KeyCode.S))
+        {
+            animator.Play("FlashFire_1_");
         }
         else
         {
