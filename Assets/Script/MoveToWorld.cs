@@ -15,7 +15,13 @@ public class MoveToWorld : MonoBehaviour
     private bool _keyHeld = false;
     private Single _startTime;
     private Inventory _inventory;
-    private readonly List<GameObject> _objectsToMove = new List<GameObject>(); 
+    private readonly List<GameObject> _objectsToMove = new List<GameObject>();
+
+
+
+    public Sprite NewBackground;
+    public Sprite Oldbackground;
+    public GameObject bakgrunn;
 
 
     
@@ -24,7 +30,8 @@ public class MoveToWorld : MonoBehaviour
 	void Start ()
 	{
 	    _inventory = Player.GetComponent<Inventory>();
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -45,6 +52,7 @@ public class MoveToWorld : MonoBehaviour
 	    if (_keyHeld && (_startTime + TimeToTeleport) < Time.realtimeSinceStartup)
 	    {
 	        _keyHeld = false;
+            var b = bakgrunn.GetComponent<SpriteRenderer>();
             switch (SelectedWorld)
             {
                 case 1:
@@ -52,13 +60,14 @@ public class MoveToWorld : MonoBehaviour
                     MoveObjects(-DistanceBetweenWorlds, SelectedWorld);
                     transform.position = new Vector3(transform.position.x, transform.position.y - DistanceBetweenWorlds,
                     transform.position.z);
-                    
+                    b.sprite = Oldbackground;
                     break;
                 case 2:
                     SelectedWorld = 1;
                     MoveObjects(DistanceBetweenWorlds, SelectedWorld);
                     transform.position = new Vector3(transform.position.x, transform.position.y + DistanceBetweenWorlds,
                     transform.position.z);
+                    b.sprite = NewBackground;
                     
                     break;
             }

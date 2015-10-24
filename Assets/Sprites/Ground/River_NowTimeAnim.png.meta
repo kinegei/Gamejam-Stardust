@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 265a71c6336f5b545a636d833f3ea20f
-timeCreated: 1445717279
+guid: 78a99880a84bfce42a2ec3729a24928f
+timeCreated: 1445717261
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: River_OldTimeAnim_0
-    21300002: River_OldTimeAnim_1
-    21300004: River_OldTimeAnim_2
+    21300000: River_NowTimeAnim_0
+    21300002: River_NowTimeAnim_1
+    21300004: River_NowTimeAnim_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,7 +53,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: River_OldTimeAnim_0
+    - name: River_NowTimeAnim_0
       rect:
         serializedVersion: 2
         x: 0
@@ -63,7 +63,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: River_OldTimeAnim_1
+    - name: River_NowTimeAnim_1
       rect:
         serializedVersion: 2
         x: 96
@@ -73,7 +73,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: River_OldTimeAnim_2
+    - name: River_NowTimeAnim_2
       rect:
         serializedVersion: 2
         x: 192
