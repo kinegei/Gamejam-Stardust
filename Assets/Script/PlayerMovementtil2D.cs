@@ -13,11 +13,13 @@ public class PlayerMovementtil2D : MonoBehaviour
     public LayerMask Ground;
 
     private Rigidbody2D _body;
+    private Animator animator;
 
     // Use this for initialization
     void Start ()
 	{
 	    _body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -26,15 +28,18 @@ public class PlayerMovementtil2D : MonoBehaviour
 	    {
             _body.velocity = new Vector2(Speed, _body.velocity.y);
             transform.localScale = new Vector3(1, 1, 1);
+            animator.Play("Running_");
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             _body.velocity = new Vector2(-Speed, _body.velocity.y);
             transform.localScale = new Vector3(-1, 1, 1);
+            animator.Play("Running_");
         }
         else
         {
             _body.velocity = new Vector2(0, _body.velocity.y);
+            animator.Play("StandingStill_");
         }
 
 
