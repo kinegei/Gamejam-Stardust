@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 20e2f62cbe8b3df4ba01c73a11ead9b8
-timeCreated: 1445702404
+timeCreated: 1445703671
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,50 +60,50 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 31
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Running_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 31
         y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Running_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 63
         y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Running_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 95
         y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Running_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 127
         y: 0
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
