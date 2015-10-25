@@ -17,6 +17,7 @@ public class PlayerMovementtil2D : MonoBehaviour
     private Rigidbody2D _body;
     private Animator animator;
     private Transform[] children;
+    private bool Climbing = false;
 
     private bool Dead = false;
    
@@ -39,52 +40,66 @@ public class PlayerMovementtil2D : MonoBehaviour
 	void Update () {
 	    if (!Dead)
 	    {
-	        transform.DetachChildren();
+	        var anim = "StandingStill_";
+            transform.DetachChildren();
 	        if (Input.GetKey(KeyCode.RightArrow) && _isGrounded)
 	        {
 	            _body.velocity = new Vector2(Speed, _body.velocity.y);
-
 	            transform.localScale = new Vector3(1, 1, 1);
-	            animator.Play("Running_");
+	            anim = "Running_";
 	        }
 	        else if (Input.GetKey(KeyCode.LeftArrow) && _isGrounded)
 	        {
 	            _body.velocity = new Vector2(-Speed, _body.velocity.y);
 	            transform.localScale = new Vector3(-1, 1, 1);
-	            animator.Play("Running_");
+	            anim = "Running_";
 	        }
 	        else if (Input.GetKey(KeyCode.RightArrow) && !_isGrounded)
 	        {
 	            _body.velocity = new Vector2(JumpSpeed, _body.velocity.y);
 	            transform.localScale = new Vector3(1, 1, 1);
-	            animator.Play("Running_");
+	            anim = "Running_";
 	        }
 	        else if (Input.GetKey(KeyCode.LeftArrow) && !_isGrounded)
 	        {
 	            _body.velocity = new Vector2(-JumpSpeed, _body.velocity.y);
 	            transform.localScale = new Vector3(-1, 1, 1);
-	            animator.Play("Running_");
-	        }
-	        else if (Input.GetKey(KeyCode.S))
-	        {
-	            animator.Play("FlashFire_1_");
-	        }
-	        else
+	            anim = "Running_";
+	        }else if (Climbing && Input.GetKey(KeyCode.UpArrow))
+            {
+                _body.velocity = new Vector2(_body.velocity.x, 3);
+            }
+            else if (Climbing && Input.GetKey(KeyCode.DownArrow))
+            {
+                _body.velocity = new Vector2(_body.velocity.x, -3);
+            }else if (Climbing)
+            {
+                _body.velocity = new Vector2(0, 0);
+            }
+            else
 	        {
 	            _body.velocity = new Vector2(0, _body.velocity.y);
-	            animator.Play("StandingStill_");
+	            anim = "StandingStill_";
 	        }
 
 	        foreach (Transform T in children) // Re-Attach
 	            T.parent = transform;
 
-
-	        _isGrounded = Physics2D.OverlapCircle(Grounder.transform.position, Radius, Ground);
+            
+            _isGrounded = Physics2D.OverlapCircle(Grounder.transform.position, Radius, Ground);
 
 	        if (Input.GetKey(KeyCode.Space) && _isGrounded)
 	        {
 	            _body.AddForce(Jump, ForceMode2D.Force);
 	        }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                anim = "FlashFire_1_";
+            }
+
+
+            animator.Play(anim);
 	    }
 	    else
 	    {
@@ -110,7 +125,20 @@ public class PlayerMovementtil2D : MonoBehaviour
             Dead = true;
             Debug.Log("Dead");
             TimeOfDeath = Time.realtimeSinceStartup;
-            // Application.LoadLevel(0);
+        }
+
+        if (other.tag == "ClimbTree")
+        {
+            Climbing = true;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "ClimbTree")
+        {
+            Climbing = false;
         }
     }
 }

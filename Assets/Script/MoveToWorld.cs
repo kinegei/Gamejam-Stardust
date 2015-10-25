@@ -9,7 +9,7 @@ public class MoveToWorld : MonoBehaviour
     public float TimeToTeleport = 0.5f;
     public int DistanceBetweenWorlds = 500;
     public int SelectedWorld = 1;
-
+    
     public GameObject Player;
 
     private bool _keyHeld = false;
