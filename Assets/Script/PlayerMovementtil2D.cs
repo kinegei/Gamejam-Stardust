@@ -29,7 +29,11 @@ public class PlayerMovementtil2D : MonoBehaviour
 	    _body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-         children = new Transform[transform.childCount];
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
+        audio.Play(44100);
+
+        children = new Transform[transform.childCount];
 
         int i = 0;
         foreach (Transform T in transform)
@@ -105,7 +109,7 @@ public class PlayerMovementtil2D : MonoBehaviour
 	    {
 	        if (TimeOfDeath + 1 < Time.realtimeSinceStartup)
 	        {
-	            Application.LoadLevel(0);
+	            Application.LoadLevel("JanOle");
 	        }
 	    }
 	}

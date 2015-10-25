@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Intro.cs" />
     <Compile Include="Assets\Script\Inventory.cs" />
     <Compile Include="Assets\Script\MoveToWorld.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Script\SeedTree.cs" />
     <Compile Include="Assets\Script\StarDust.cs" />
     <Compile Include="Assets\Script\TransportableProperties.cs" />
+    <Compile Include="Assets\Script\Win.cs" />
     <Compile Include="Assets\TEstMovementScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
