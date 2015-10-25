@@ -29,10 +29,6 @@ public class PlayerMovementtil2D : MonoBehaviour
 	    _body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
-        audio.Play(44100);
-
         children = new Transform[transform.childCount];
 
         int i = 0;
@@ -85,12 +81,14 @@ public class PlayerMovementtil2D : MonoBehaviour
 	            _body.velocity = new Vector2(0, _body.velocity.y);
 	            anim = "StandingStill_";
 	        }
+	        try
+	        {
+	            foreach (Transform T in children) // Re-Attach
+	                T.parent = transform;
+            }
+            catch (Exception) { }
 
-	        foreach (Transform T in children) // Re-Attach
-	            T.parent = transform;
-
-            
-            _isGrounded = Physics2D.OverlapCircle(Grounder.transform.position, Radius, Ground);
+	        _isGrounded = Physics2D.OverlapCircle(Grounder.transform.position, Radius, Ground);
 
 	        if (Input.GetKey(KeyCode.Space) && _isGrounded)
 	        {
